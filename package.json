@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/stripe": "^8.0.417",
+    "stripe": "^14.20.0"
+  }
 }
