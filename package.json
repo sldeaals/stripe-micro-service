@@ -1,0 +1,17 @@
+{
+  "name": "stripe-micro-service",
+  "version": "1.0.0",
+  "description": "Node.js Stripe micro-service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/stripe": "^8.0.417",
+    "stripe": "^14.20.0"
+  }
+}
