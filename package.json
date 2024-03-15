@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/stripe": "^8.0.417",
+    "dotenv": "^16.4.5",
     "stripe": "^14.20.0"
   }
 }
