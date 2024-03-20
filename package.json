@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/stripe": "^8.0.417",
     "dotenv": "^16.4.5",
+    "joi": "^17.12.2",
     "stripe": "^14.20.0"
   }
 }
