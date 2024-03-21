@@ -13,8 +13,8 @@ async function createCustomerController(req, res, next) {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    const { email, name, phone } = req.body;
-    const customer = await createCustomer(email, name, phone);
+    const { email, name, phone, address } = req.body;
+    const customer = await createCustomer(email, name, phone, address);
     res.status(201).json(customer);
   } catch (error) {
     next(error);
@@ -40,12 +40,13 @@ async function updateCustomerController(req, res, next) {
       return res.status(400).json({ error: error.details[0].message });
     }
 
-    const { email, name, phone } = req.body;
+    const { email, name, phone, address } = req.body;
     const updatedCustomer = await updateCustomer(
       customerId,
       email,
       name,
-      phone
+      phone,
+      address
     );
     res.json(updatedCustomer);
   } catch (error) {

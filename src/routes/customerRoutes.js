@@ -4,7 +4,7 @@ const { createCustomerController, findCustomerController, updateCustomerControll
 
 customerRoutes.post('/', createCustomerController);
 customerRoutes.get('/:customerId', findCustomerController);
-customerRoutes.put('/:customerId', updateCustomerController);
+customerRoutes.patch('/:customerId', updateCustomerController);
 customerRoutes.delete('/:customerId', deleteCustomerController);
 
 module.exports = customerRoutes;
