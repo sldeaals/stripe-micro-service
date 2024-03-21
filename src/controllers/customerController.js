@@ -1,5 +1,9 @@
-const { createCustomer, findCustomer, updateCustomer, deleteCustomer }  = require('../services/customerService');
-const { customerCreateSchema, customerUpdateSchema } = require('../models/customerSchema');
+const { 
+  createCustomer, findCustomer, updateCustomer, deleteCustomer,
+} = require('../services/customerService');
+const {
+  customerCreateSchema, customerUpdateSchema,
+} = require('../models/customerSchema');
 
 async function createCustomerController(req, res, next) {
   try {
@@ -28,21 +32,26 @@ async function findCustomerController(req, res, next) {
 }
 
 async function updateCustomerController(req, res, next) {
-    try {
-      const { customerId } = req.params;
-      
-      const { error } = customerUpdateSchema.validate(req.body);
-      if (error) {
-        return res.status(400).json({ error: error.details[0].message });
-      }
-      
-      const { email, name, phone } = req.body;
-      const updatedCustomer = await updateCustomer(customerId, email, name, phone);
-      res.json(updatedCustomer);
-    } catch (error) {
-      next(error);
+  try {
+    const { customerId } = req.params;
+
+    const { error } = customerUpdateSchema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
     }
+
+    const { email, name, phone } = req.body;
+    const updatedCustomer = await updateCustomer(
+      customerId,
+      email,
+      name,
+      phone
+    );
+    res.json(updatedCustomer);
+  } catch (error) {
+    next(error);
   }
+}
 
 async function deleteCustomerController(req, res, next) {
   try {
