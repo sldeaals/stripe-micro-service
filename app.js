@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const { errorHandler } = require('./src/utils/errorHandlers'); // Adjust the path accordingly
+const { errorHandler } = require('./src/utils/errorHandlers');
 const routes = require('./src/routes');
 
 const app = express();
