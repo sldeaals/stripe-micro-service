@@ -1,11 +1,12 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-async function createCustomer(email, name, phone) {
+async function createCustomer(email, name, phone, address) {
   try {
     const customer = await stripe.customers.create({
       email,
       name,
       phone,
+      address,
     });
     return customer;
   } catch (error) {
@@ -22,12 +23,13 @@ async function findCustomer(customerId) {
   }
 }
 
-async function updateCustomer(customerId, email, name, phone) {
+async function updateCustomer(customerId, email, name, phone, address) {
   try {
     const updatedCustomer = await stripe.customers.update(customerId, {
       email,
       name,
       phone,
+      address,
     });
     return updatedCustomer;
   } catch (error) {
