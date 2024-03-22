@@ -6,7 +6,7 @@ const customerAddressSchema = Joi.object({
   city: Joi.string().required(),
   state: Joi.string().required(),
   postal_code: Joi.string().pattern(/^\d{5}(?:[-\s]\d{4})?$/).required(),
-  country: Joi.string().length(2).required(),
+  country: Joi.string().length(2).uppercase().required(),
 });
 
 const customerCreateSchema = Joi.object({

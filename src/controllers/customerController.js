@@ -4,6 +4,7 @@ const {
 const {
   customerCreateSchema, customerUpdateSchema,
 } = require('../models/customerSchema');
+const { validateCountryField } = require('../utils/validateCountryField');
 
 async function createCustomerController(req, res, next) {
   try {
@@ -14,6 +15,9 @@ async function createCustomerController(req, res, next) {
     }
 
     const { email, name, phone, address } = req.body;
+    
+    await validateCountryField(address.country);
+
     const customer = await createCustomer(email, name, phone, address);
     res.status(201).json(customer);
   } catch (error) {
@@ -41,6 +45,9 @@ async function updateCustomerController(req, res, next) {
     }
 
     const { email, name, phone, address } = req.body;
+
+    await validateCountryField(address.country);
+    
     const updatedCustomer = await updateCustomer(
       customerId,
       email,
